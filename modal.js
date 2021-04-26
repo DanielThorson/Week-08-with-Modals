@@ -8,6 +8,7 @@ var modalSubPagesBtn4 = document.querySelector(".Subpages-modal-btn4");
 var modalSubPagesBtn5 = document.querySelector(".Subpages-modal-btn5");
 var modalSubPagesBtn6 = document.querySelector(".Subpages-modal-btn6");
 
+
 // function to open Create Donut Shop
 modalSubPagesBtn.addEventListener("click", openModal2);
 function openModal2() {
@@ -66,7 +67,7 @@ function hideModal6() {
 // function to open Place Order
 modalSubPagesBtn6.addEventListener("click", openModal7);
 function openModal7() {
-  orderModal.style.display = "block";
+  ordModal.style.display = "block";
 }
 // Function to hide Main Menu
 modalSubPagesBtn6.addEventListener("click", hideModal7);
@@ -81,7 +82,7 @@ var donutModal = document.querySelector(".dmodal");
 var addModal = document.querySelector(".amodal");
 var invModal = document.querySelector(".imodal");
 var revModal = document.querySelector(".rmodal");
-var orderModal = document.querySelector(".omodal");
+var ordModal = document.querySelector(".omodal");
 var modalMenuBtn = document.querySelector(".Main-Menu-modal-btn");
 var modalMenuBtn2 = document.querySelector(".Main-Menu-modal-btn2");
 var modalMenuBtn3 = document.querySelector(".Main-Menu-modal-btn3");
@@ -146,5 +147,7 @@ function openModal66() {
 
 modalMenuBtn6.addEventListener("click", hideModal66);
 function hideModal66() {
-  orderModal.style.display = "none";
+  ordModal.style.display = "none";
 }
+
+
