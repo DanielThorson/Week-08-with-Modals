@@ -1,24 +1,23 @@
   // for creating new donuts
-  var f = [];
+  var n = [];
 
 
-  let btn2 = document.querySelector(".donut_create");
+  let btn1 = document.querySelector(".create_shop");
   
-  btn2.addEventListener("click", function (event) {
-    let type = prompt("Which type do you want to create?");
-    let price = prompt("How much do they cost?");
-    alert("inventory change complete");
-   f.push(type, Number.parseInt(price));
-    fetch("https://donutshop-api.herokuapp.com/create-donut-type?id=234", {
+  btn1.addEventListener("click", function (event) {
+    let name = prompt("What is the name of the shop you want to create?");
+    alert("New Donut Shop Created.");
+   n.push(name);
+    fetch("https://donutshop-api.herokuapp.com/create-donut-shop?id=234", {
     method: "POST",
     mode: 'cors',
     headers: {
       "Content-Type": "application/json"
     },
-      body: JSON.stringify({type, price}),
+      body: JSON.stringify({name}),
     })
       .then((response) => response.json())
-      .then((data) => x.push(data))
+      .then((data) => n.push(data))
       .then(updateInventory) //add this to every potst
       .catch((err) => {
       console.error(err);
