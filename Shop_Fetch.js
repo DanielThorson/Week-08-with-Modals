@@ -5,7 +5,7 @@
  })
    .then((response) => response.json())
    .then((data) => {
-     let x = document.getElementById("shops");
+     let a = document.getElementById("shops");
      for (var i = 0; i < data.length; i++) {
        let result = document.createElement("option");
        result.innerText = data[i];
@@ -14,7 +14,7 @@
          shopName = Event.target.value;
          getID(shopName);
        };
-       x.append(result);
+       a.append(result);
        console.log(result);
      }
    })
@@ -47,13 +47,13 @@
    .then((response) => response.json())
    .then((data) => {
      shops = data;
-     let x = document.getElementById("#shops");
+     let d = document.getElementById("#shops");
      let result = document.createElement("option");
      result.innerText = shops;
      for (var i = 0; i < shops.length; i++) {
        html += "<option>" + shops[i] + "</option>";
        document.getElementById("#shops").innerHTML = html;
-       x.prepend(data);
+       d.prepend(data);
 
    }})
    .catch((err) => {
@@ -66,13 +66,13 @@
    .then((response) => response.json())
    .then((data) => {
      shops = data;
-     let x = document.getElementById("shops");
+     let u = document.getElementById("shops");
      let result = document.createElement("option");
      var html = "<option>";
      for (var i = 0; i < shops.length; i++) {
      html += "<option>" + shops[i] + "</option>";
      document.getElementById("shops").innerHTML = html;
-     x.prepend(result);
+     u.prepend(result);
    }
    .catch((err) => {
      console.error(err);

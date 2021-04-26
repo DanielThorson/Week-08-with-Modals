@@ -1,14 +1,14 @@
   // for creating new donuts
-  var x = [];
+  var f = [];
 
 
   let btn2 = document.querySelector(".donut_create");
   
   btn2.addEventListener("click", function (event) {
-    let type = prompt("Which type do you want to add?");
+    let type = prompt("Which type do you want to create?");
     let price = prompt("How much do they cost?");
     alert("inventory change complete");
-   x.push(type, Number.parseInt(price));
+   f.push(type, Number.parseInt(price));
     fetch("https://donutshop-api.herokuapp.com/create-donut-type?id=234", {
     method: "POST",
     mode: 'cors',

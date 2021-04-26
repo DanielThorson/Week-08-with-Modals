@@ -8,7 +8,7 @@ fetch("https://donutshop-api.herokuapp.com/shops/", {
 })
   .then((response) => response.json())
   .then((data) => {
-    let x = document.getElementById("shops");
+    let m = document.getElementById("shops");
     for (var i = 0; i < data.length; i++) {
       let result = document.createElement("option");
       result.innerText = data[i];
@@ -17,7 +17,7 @@ fetch("https://donutshop-api.herokuapp.com/shops/", {
         shopName = Event.target.value;
         getID(shopName);
       };
-      x.append(result);
+      m.append(result);
       console.log(result);
     }
   })
@@ -44,40 +44,43 @@ function getID(name) {
 }
 
 // Print Inventory
-function updateInventory(){var rows = [];
-fetch("https://donutshop-api.herokuapp.com/inventory?id=234", {
-  method: "GET",
-})
-  .then((response) => response.json())
-  .then((data) => {
-    rows = data.donuts;
-    console.log(rows);
-    let x = document.getElementById("inventory");
-    let result = document.createElement("h5");
-    var html = "<table border='1|1'>";
-    for (var i = 0; i < rows.length; i++) {
-      html += "<td>" + rows[i].type + "</td>";
-      html +=
-        "<td>" +
-        rows[i].price.toLocaleString("en-us", {
-          style: "currency",
-          currency: "usd",
-        }) +
-        "</td>";
-      html += "<td>Count: " + rows[i].count + "</td>";
-
-      html += "</tr>";
-    }
-    html += "</table>";
-    document.getElementById("inventory").innerHTML = html;
-    x.prepend(result);
+function updateInventory() {
+  var rows = [];
+  fetch("https://donutshop-api.herokuapp.com/inventory?id=234", {
+    method: "GET",
   })
-  .catch((err) => {
-    console.error(err);
-  });};
+    .then((response) => response.json())
+    .then((data) => {
+      rows = data.donuts;
+      console.log(rows);
+      let x = document.getElementById("inventory");
+      let result = document.createElement("h5");
+      var html = "<table border='1|1'>";
+      for (var i = 0; i < rows.length; i++) {
+        html += "<td>" + rows[i].type + "</td>";
+        html +=
+          "<td>" +
+          rows[i].price.toLocaleString("en-us", {
+            style: "currency",
+            currency: "usd",
+          }) +
+          "</td>";
+        html += "<td>Count: " + rows[i].count + "</td>";
+
+        html += "</tr>";
+      }
+      html += "</table>";
+      document.getElementById("inventory").innerHTML = html;
+      x.prepend(result);
+    })
+    .then(updateInventory)
+    .catch((err) => {
+      console.error(err);
+    });
+}
 
 // for Revenue Page
-fetch('https://donutshop-api.herokuapp.com/revenue?id=234', {
+fetch("https://donutshop-api.herokuapp.com/revenue?id=234", {
   method: "GET",
 })
   .then((response) => response.json())
@@ -96,3 +99,4 @@ fetch('https://donutshop-api.herokuapp.com/revenue?id=234', {
   .catch((err) => {
     console.error(err);
   });
+updateInventory();

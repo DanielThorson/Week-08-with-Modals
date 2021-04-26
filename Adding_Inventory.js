@@ -1,16 +1,28 @@
-// for adding donuts
-let btn3 = document.querySelector(".donut_add");
 
-btn3.addEventListener("click", function (event) {
-  let type = prompt("Which type do you want to add?");
-  let price = prompt("How much do they cost?");
-  alert("inventory change complete");
-});
+ // for adding donuts
+  var z = [];
 
-// let btn6 = document.querySelector("#order");
 
-// btn6.addEventListener("click", function (event) {
-//   let type = prompt("Which type do you want to order?");
-//   let count = prompt("How many do you want?");
-//   alert("Customer Order Completed");
-// });
+  let btn3 = document.querySelector(".donut_add");
+  
+  btn3.addEventListener("click", function (event) {
+    let type = prompt("Which type do you want to add?");
+    let count = prompt("How many do you want to add?");
+    alert("inventory change complete");
+   z.push(type, Number.parseInt(count));
+    fetch("https://donutshop-api.herokuapp.com/add-donuts?id=234", {
+    method: "POST",
+    mode: 'cors',
+    headers: {
+      "Content-Type": "application/json"
+    },
+      body: JSON.stringify({type, count}),
+    })
+      .then((response) => response.json())
+      .then((data) => x.push(data))
+      .then(updateInventory) //add this to every potst
+      .catch((err) => {
+      console.error(err);
+    });
+  });
+  
