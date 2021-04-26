@@ -139,12 +139,12 @@ function hideModal55() {
   revModal.style.display = "none";
 }
 
-// modalMenuBtn6.addEventListener("click", openModal66);
-// function openModal66() {
-//   modal.style.display = "block";
-// }
+modalMenuBtn6.addEventListener("click", openModal66);
+function openModal66() {
+  modal.style.display = "block";
+}
 
-// modalMenuBtn6.addEventListener("click", hideModal66);
-// function hideModal66() {
-//   orderModal.style.display = "none";
-// }
+modalMenuBtn6.addEventListener("click", hideModal66);
+function hideModal66() {
+  orderModal.style.display = "none";
+}

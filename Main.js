@@ -44,8 +44,8 @@ function getID(name) {
 }
 
 // Print Inventory
-var rows = [];
-fetch(`https://donutshop-api.herokuapp.com/inventory?id=${shopId}`, {
+function updateInventory(){var rows = [];
+fetch("https://donutshop-api.herokuapp.com/inventory?id=234", {
   method: "GET",
 })
   .then((response) => response.json())
@@ -74,10 +74,10 @@ fetch(`https://donutshop-api.herokuapp.com/inventory?id=${shopId}`, {
   })
   .catch((err) => {
     console.error(err);
-  });
+  });};
 
 // for Revenue Page
-fetch("https://donutshop-api.herokuapp.com/revenue?id=234`, {
+fetch('https://donutshop-api.herokuapp.com/revenue?id=234', {
   method: "GET",
 })
   .then((response) => response.json())
@@ -96,5 +96,3 @@ fetch("https://donutshop-api.herokuapp.com/revenue?id=234`, {
   .catch((err) => {
     console.error(err);
   });
-
-
