@@ -2,19 +2,20 @@
   var n = [];
 
 
-  let btn1 = document.querySelector(".create_shop");
+  let btn12 = document.querySelector(".donut_create");
   
-  btn1.addEventListener("click", function (event) {
-    let name = prompt("What is the name of the shop you want to create?");
-    alert("New Donut Shop Created.");
-   n.push(name);
-    fetch("https://donutshop-api.herokuapp.com/create-donut-shop?id=234", {
+  btn12.addEventListener("click", function (event) {
+    let type = prompt("What is the name of the shop you want to create?");
+    let price = prompt("How much does it cost?");
+    alert("New Donut Type Created.");
+   n.push(type, Number.parseInt(price));
+    fetch("https://donutshop-api.herokuapp.com/create-donut-type?id=234", {
     method: "POST",
     mode: 'cors',
     headers: {
       "Content-Type": "application/json"
     },
-      body: JSON.stringify({name}),
+      body: JSON.stringify({type, price}),
     })
       .then((response) => response.json())
       .then((data) => n.push(data))

@@ -1,11 +1,10 @@
-
- // for adding donuts
+// for adding donuts
   var z = [];
 
 
-  let btn3 = document.querySelector(".donut_add");
+  let btn34 = document.querySelector(".donut_add");
   
-  btn3.addEventListener("click", function (event) {
+  btn34.addEventListener("click", function (event) {
     let type = prompt("Which type do you want to add?");
     let count = prompt("How many do you want to add?");
     alert("inventory change complete");
@@ -19,7 +18,7 @@
       body: JSON.stringify({type, count}),
     })
       .then((response) => response.json())
-      .then((data) => x.push(data))
+      .then((data) => z.push(data))
       .then(updateInventory) //add this to every potst
       .catch((err) => {
       console.error(err);
